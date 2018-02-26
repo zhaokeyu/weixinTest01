@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html> 
+<html>
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>三星智慕 多维双驱洗衣机</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="full-screen" content="true">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="360-fullscreen" content="true">
+		<meta http-equiv="expires" content="0">
+		<style>
+			.none {
+				display: none;
+			}
+			.dao{ 
+				-webkit-animation-delay: 0s;
+				-webkit-animation-name: dao;
+				-webkit-animation-duration: 2s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-fill-mode: both;
+			}
+			@-webkit-keyframes dao {
+				0% {
+					opacity: 1;
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: rotate(90deg);
+				} 
+			}
+			
+		</style>
+	</head>
+
+	<body style="position: absolute; width: 100%; height: 100%; overflow: hidden; margin: 0px;">
+		<img src="http://zmds.net/zhlove/picture/sharimg.jpg" style="width:0;height: 0;visibility: hidden;">
+		<!--核心包，封装了显示对象渲染，事件，时间管理，时间轴动画，缓动，消息交互,socket，本地存储，鼠标触摸，声音，加载，颜色滤镜，位图字体等-->
+		<script type="text/javascript" src="js/laya.core.js"></script>
+		<!--封装了webgl渲染管线，如果使用webgl渲染，可以在初始化时调用Laya.init(1000,800,laya.webgl.WebGL);-->
+		<script type="text/javascript" src="js/laya.webgl.js"></script>
+		<!--提供了制作UI的各种组件实现-->
+		<script type="text/javascript" src="js/laya.ui.js"></script>
+
+		<script src="js/layaui.max.all.js"></script>
+		<!--自定义的js(bin/js文件夹下)文件自动添加到下面jsfile模块标签里面里，js的顺序可以手动修改，修改后保留修改的顺序，新增加的js会默认依次追加到标签里-->
+		<!--删除标签，ide不会自动添加js文件，请谨慎操作-->
+		<!--jsfile--startTag-->
+		<script src="js/layauisample.js"></script>
+		<!--jsfile--endTag-->
+		<div id="layaContainer" style="width: 100%; height: 100%;">
+			<div style="position: absolute; z-index: 100000;"></div>
+			
+		</div>
+
+		<div id="page" style="position: absolute;top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;background-color: #FFFFFF;">
+			<img style="position: absolute;left: 25%;top: 60%;width: 50%;"src="picture/newtip.png">
+			<img class="dao" id="phone" style="position: absolute;left: 40%;top: 30%;width: 20%;"src="picture/newhui.png">
+		</div>
+<!--		<img src="picture/QuickDrive_180211-03.jpg">-->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jweixin-1.0.0.js" ></script>
+		<script src="js/wechat.js" ></script>
+		<script>
+				$('#phone')[0].addEventListener("webkitAnimationEnd", function(){ 
+					$('#phone').css("-webkit-transform","rotate(90deg)");
+					$('#phone').removeClass("dao");
+					setTimeout(function(){ 
+						$('#phone').css("-webkit-transform","rotate(0deg)");
+						$('#phone').addClass("dao");
+					},2000);
+				}, false);
+				
+		</script>
+	</body>
+
+</html>
